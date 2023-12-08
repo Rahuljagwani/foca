@@ -12,16 +12,14 @@ with open(file_name, "r") as _file:
     long_description = _file.read()
 
 install_requires = []
-req = root_dir / 'requirements.txt'
+req = root_dir / "requirements.txt"
 with open(req, "r") as _file:
     install_requires = _file.read().splitlines()
 
 setup(
     name="foca",
     version=__version__,  # noqa: F821
-    description=(
-        "Archetype for OpenAPI microservices based on Flask and Connexion"
-    ),
+    description=("Archetype for OpenAPI microservices based on Flask and Connexion"),
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/elixir-cloud-aai/foca",
@@ -47,9 +45,7 @@ setup(
         "Topic :: Utilities",
         "Typing :: Typed",
     ],
-    keywords=(
-        'rest api app openapi python microservice'
-    ),
+    keywords=("rest api app openapi python microservice"),
     project_urls={
         "Repository": "https://github.com/elixir-cloud-aai/foca",
         "ELIXIR Cloud & AAI": "https://elixir-europe.github.io/cloud/",
@@ -58,9 +54,9 @@ setup(
     packages=find_packages(),
     install_requires=install_requires,
     include_package_data=True,
-    package_data={"foca.security.access_control.api": ["*.yaml", "*.conf"]},
-    setup_requires=[
-        "setuptools_git==1.2",
-        "twine==3.8.0"
-    ],
+    package_data={
+        "foca.security.access_control.api": ["*.yaml", "*.conf"],
+        "": ["py.typed"],
+    },
+    setup_requires=["setuptools_git==1.2", "twine==3.8.0"],
 )
